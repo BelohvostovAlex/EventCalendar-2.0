@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { useAppSelector } from '../hooks/useAppSelector';
 import { publicRoutes, privateRoutes, pathesEnum } from '../router';
 
-export const AppRouter = () => {
+export const AppRouter: React.FC = () => {
   const {isAuth} = useAppSelector(state => state.auth)
 
   return isAuth ? (
