@@ -5,7 +5,6 @@ import { EventDrawer } from '../components/EventDrawer';
 
 export const Event: React.FC = () => {
 
-
   return (
     <Layout style={{height: 'calc(100vh - 128px)'}}>
       <Space size="small" direction="vertical">
