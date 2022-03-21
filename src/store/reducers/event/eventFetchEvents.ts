@@ -7,10 +7,12 @@ export const fetchEvents = createAsyncThunk(
         try {
             const events = localStorage.getItem('events') || '[]'
             const json = JSON.parse(events) as IEvent[]
-            const newEvents = json.filter((ev => ev.author === username && ev.guest === username))
+            const newEvents = json.filter((ev => ev.author === 'alex' || ev.guest === 'alex'))
             return newEvents
         } catch (error) {
-            return thunkAPI.rejectWithValue(error)
+            if(error instanceof Error) {
+                return thunkAPI.rejectWithValue(error.message)
+            }
         }
     }
 )

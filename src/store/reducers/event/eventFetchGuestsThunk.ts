@@ -9,7 +9,9 @@ export const fetchGuests = createAsyncThunk(
             const {data} = await axios.get<IUser[]>('./users.json')
             return data
         } catch (error) {
-            return thunkAPI.rejectWithValue(error)
+            if(error instanceof Error) {
+                return thunkAPI.rejectWithValue(error.message)
+            }
         }
     }
 )

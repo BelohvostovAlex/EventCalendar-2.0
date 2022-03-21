@@ -11,7 +11,9 @@ export const createEvent = createAsyncThunk(
             localStorage.setItem('events',JSON.stringify(json))
             return json
         } catch (error) {
-            thunkAPI.rejectWithValue(error)
+            if(error instanceof Error) {
+                return thunkAPI.rejectWithValue(error.message)
+            }
         }
     }
 )
